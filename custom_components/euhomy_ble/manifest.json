@@ -1,0 +1,13 @@
+{
+  "domain": "euhomy_ble",
+  "name": "Euhomy BLE",
+  "codeowners": ["@jnflc"],
+  "config_flow": true,
+  "dependencies": ["bluetooth_adapters"],
+  "documentation": "https://github.com/jnflc/ha-euhomy-ble",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/jnflc/ha-euhomy-ble/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

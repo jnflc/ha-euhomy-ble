@@ -1,0 +1,93 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Kühlschrank auswählen",
+        "description": "Angezeigt werden Tuya-Bluetooth-Geräte in Reichweite; Euhomy-Kühlschränke melden sich als \"TY\". Schließe zuerst die Euhomy-App: Der Kühlschrank spricht immer nur mit einem Gerät.",
+        "data": {
+          "address": "Gerät"
+        }
+      },
+      "credentials": {
+        "title": "Tuya-Zugangsdaten",
+        "description": "Der Kühlschrank ({address}) verschlüsselt seine Bluetooth-Kommunikation mit einem Schlüssel, den nur die Tuya-Cloud kennt. Trage die Zugangsdaten dieses Kühlschranks ein; wie du sie einmalig nachschlägst, steht in der README.",
+        "data": {
+          "name": "Name",
+          "local_key": "Local Key",
+          "device_id": "Geräte-ID",
+          "uuid": "UUID"
+        },
+        "data_description": {
+          "local_key": "16 Zeichen",
+          "device_id": "Heißt in der Tuya-IoT-Plattform \"Device ID\" oder \"Virtual ID\"",
+          "uuid": "Heißt in der Tuya-IoT-Plattform \"UUID\""
+        }
+      },
+      "reauth_confirm": {
+        "title": "Tuya-Zugangsdaten aktualisieren",
+        "description": "Der Kühlschrank ({address}) hat die gespeicherten Zugangsdaten abgelehnt. Trage die aktuellen ein.",
+        "data": {
+          "local_key": "Local Key",
+          "device_id": "Geräte-ID",
+          "uuid": "UUID"
+        }
+      }
+    },
+    "error": {
+      "invalid_local_key": "Der Local Key muss aus mindestens 6 ASCII-Zeichen bestehen.",
+      "invalid_device_id": "Die Geräte-ID muss aus 1 bis 22 ASCII-Zeichen bestehen.",
+      "invalid_uuid": "Die UUID muss aus 1 bis 16 ASCII-Zeichen bestehen.",
+      "device_not_found": "Der Kühlschrank ist nicht mehr in Bluetooth-Reichweite.",
+      "cannot_connect": "Verbindung fehlgeschlagen. Schließe die Euhomy-App und prüfe, dass der Kühlschrank eingeschaltet und in Reichweite eines Bluetooth-Adapters oder -Proxys ist.",
+      "no_response": "Der Kühlschrank antwortet nicht. Meist ist der Local Key falsch.",
+      "invalid_auth": "Der Kühlschrank hat die Zugangsdaten abgelehnt. Prüfe Geräte-ID und UUID.",
+      "unknown": "Unerwarteter Fehler, siehe Home-Assistant-Log."
+    },
+    "abort": {
+      "already_configured": "Dieser Kühlschrank ist bereits eingerichtet.",
+      "no_devices_found": "Keine Tuya-Bluetooth-Geräte gefunden. Schalte den Kühlschrank ein, bring ihn in Reichweite eines Bluetooth-Adapters oder -Proxys und schließe die Euhomy-App.",
+      "reauth_successful": "Zugangsdaten aktualisiert."
+    }
+  },
+  "entity": {
+    "climate": {
+      "fridge": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "max": "MAX",
+              "eco": "ECO"
+            }
+          }
+        }
+      }
+    },
+    "select": {
+      "battery_protection": {
+        "name": "Batterieschutz",
+        "state": {
+          "low": "Niedrig",
+          "medium": "Mittel",
+          "high": "Hoch"
+        }
+      },
+      "display_unit": {
+        "name": "Anzeigeeinheit",
+        "state": {
+          "celsius": "°C",
+          "fahrenheit": "°F"
+        }
+      }
+    },
+    "sensor": {
+      "battery_voltage": {
+        "name": "Batteriespannung"
+      }
+    },
+    "switch": {
+      "panel_lock": {
+        "name": "Tastensperre"
+      }
+    }
+  }
+}

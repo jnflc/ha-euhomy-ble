@@ -1,0 +1,93 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Choose your fridge",
+        "description": "Tuya Bluetooth devices in range are listed; Euhomy fridges advertise as \"TY\". Close the Euhomy app first: the fridge only talks to one device at a time.",
+        "data": {
+          "address": "Device"
+        }
+      },
+      "credentials": {
+        "title": "Tuya credentials",
+        "description": "The fridge ({address}) encrypts its Bluetooth traffic with a key that only the Tuya cloud knows. Enter the credentials of this fridge; see the README for how to look them up once.",
+        "data": {
+          "name": "Name",
+          "local_key": "Local key",
+          "device_id": "Device ID",
+          "uuid": "UUID"
+        },
+        "data_description": {
+          "local_key": "16 characters",
+          "device_id": "Shown as \"Device ID\" or \"Virtual ID\" in the Tuya IoT platform",
+          "uuid": "Shown as \"UUID\" in the Tuya IoT platform"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Update the Tuya credentials",
+        "description": "The fridge ({address}) rejected the stored credentials. Enter the current ones.",
+        "data": {
+          "local_key": "Local key",
+          "device_id": "Device ID",
+          "uuid": "UUID"
+        }
+      }
+    },
+    "error": {
+      "invalid_local_key": "The local key must have at least 6 ASCII characters.",
+      "invalid_device_id": "The device ID must be 1 to 22 ASCII characters.",
+      "invalid_uuid": "The UUID must be 1 to 16 ASCII characters.",
+      "device_not_found": "The fridge is no longer in Bluetooth range.",
+      "cannot_connect": "Could not connect. Close the Euhomy app and make sure the fridge is powered on and within range of a Bluetooth adapter or proxy.",
+      "no_response": "The fridge did not answer. Most likely the local key is wrong.",
+      "invalid_auth": "The fridge rejected the credentials. Check device ID and UUID.",
+      "unknown": "Unexpected error, see the Home Assistant log."
+    },
+    "abort": {
+      "already_configured": "This fridge is already configured.",
+      "no_devices_found": "No Tuya Bluetooth devices found. Power the fridge on, move it into range of a Bluetooth adapter or proxy and close the Euhomy app.",
+      "reauth_successful": "Credentials updated."
+    }
+  },
+  "entity": {
+    "climate": {
+      "fridge": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "max": "MAX",
+              "eco": "ECO"
+            }
+          }
+        }
+      }
+    },
+    "select": {
+      "battery_protection": {
+        "name": "Battery protection",
+        "state": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        }
+      },
+      "display_unit": {
+        "name": "Display unit",
+        "state": {
+          "celsius": "°C",
+          "fahrenheit": "°F"
+        }
+      }
+    },
+    "sensor": {
+      "battery_voltage": {
+        "name": "Battery voltage"
+      }
+    },
+    "switch": {
+      "panel_lock": {
+        "name": "Panel lock"
+      }
+    }
+  }
+}
